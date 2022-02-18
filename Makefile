@@ -12,10 +12,10 @@ all: bin bin/main
 bin:
 	mkdir -p bin
 
-bin/main: bin/main.o
+bin/main: bin bin/main.o
 	gcc -o bin/main -g -Wall bin/main.o
 
-bin/main.o: bin src/main.c
+bin/main.o: src/main.c
 	gcc -c -o bin/main.o -g -Wall src/main.c
 
 valgrind: bin/main
