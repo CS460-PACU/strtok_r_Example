@@ -24,11 +24,13 @@ int main()
 {
   char* pConstString = "Hello CS460   Students\tGood Luck!";
   char* pBigString;
+  int totalCharactersAllocated =  strlen(pConstString) + 1;
+  int i;
 
   // strtok_r alters the string so the first parameter
   // cannot be a constant string (like pConstString)
-  pBigString = (char*) malloc( strlen(pConstString) + 1 );
-  memcpy (pBigString, pConstString, strlen(pConstString)+1);
+  pBigString = (char*) malloc( totalCharactersAllocated );
+  memcpy (pBigString, pConstString, totalCharactersAllocated);
 
   // the token
   char *pToken;
@@ -60,6 +62,19 @@ int main()
 
   // what is left in pBigString?
   printf("pBigString: %s\n", pBigString);
+
+  for (i = 0 ; i < totalCharactersAllocated ; i ++ )
+  {
+    if( '\0' ==  pBigString[i] )
+    {
+      printf("[null]");
+    }
+    else
+    {
+      printf("%c", pBigString[i]);
+    }
+  }
+  printf("\n\n");
 
   free(pBigString);
 
