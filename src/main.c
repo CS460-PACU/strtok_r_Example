@@ -50,14 +50,14 @@ int main()
   pToken = strtok_r(pBigString, " \t", &pSavePtr);
 
   counter ++;
-  printf("%d: %s\n", counter, pToken);
+  printf("%d: |%s|\n", counter, pToken);
 
   // each subsequent call to strtok_r should 
   // set the first parameter to NULL
   while( (pToken = strtok_r(NULL, " \t", &pSavePtr)))
   {
     counter ++;
-    printf("%d: %s\n", counter, pToken);
+    printf("%d: |%s|\n", counter, pToken);
   }
 
   // what is left in pBigString?
